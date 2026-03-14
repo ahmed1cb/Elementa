@@ -8,6 +8,7 @@ import Components from "./components/Components";
 import TopUsers from "./components/TopUsers";
 import Profile from "./components/Profile";
 import Settings from "./components/Settings";
+import ComponentEditor from "./components/ComponentEditor";
 
 function App() {
   const {theme} = useTheme();
@@ -19,6 +20,7 @@ function App() {
         <Route path='users' element={<TopUsers />} />
         <Route path='profile' element={<Profile />} />
         <Route path='settings' element={<Settings/>} />
+        <Route path='new' element={<ComponentEditor/>} />
       </Route>
 
       <Route path="/auth">

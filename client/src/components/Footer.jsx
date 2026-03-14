@@ -5,7 +5,7 @@ const FOOTER_LINKS = {
   Platform: [
     { label: "Components", href: "/components" },
     { label: "Top Users", href: "/users" },
-    { label: "Share", href: "/upload" },
+    { label: "Share", href: "/new" },
     { label: "Tags", href: "/tags" },
   ],
   Account: [

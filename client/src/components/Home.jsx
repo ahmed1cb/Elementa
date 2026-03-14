@@ -179,7 +179,7 @@ export default function Home() {
 
               <div className="flex items-center gap-3 flex-wrap">
                 <a
-                  href="/upload"
+                  href="/new"
                   className="flex items-center gap-2 px-5 py-2.5 bg-[var(--accent)] text-white font-display font-bold text-sm rounded-[var(--radius-md)] no-underline hover:opacity-90 active:scale-[0.97] transition-all"
                 >
                   <Zap size={15} />

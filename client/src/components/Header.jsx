@@ -71,7 +71,7 @@ export default function Header({ user = { name: "ahmed1cb", avatar: "AC" } }) {
         <div className="flex items-center gap-2 ml-auto shrink-0">
           {/* Upload CTA */}
           <a
-            href="/upload"
+            href="/new"
             className="hidden sm:flex items-center gap-1.5 px-3.5 py-2 bg-[var(--accent)] text-white text-sm font-semibold rounded-[var(--radius-md)] no-underline hover:opacity-90 active:scale-[0.97] transition-all font-display"
           >
             <Plus size={15} />
@@ -132,7 +132,7 @@ export default function Header({ user = { name: "ahmed1cb", avatar: "AC" } }) {
           {[
             { label: "Components", href: "/components" },
             { label: "Top Users", href: "/users" },
-            { label: "Share a component", href: "/upload" },
+            { label: "Share a component", href: "/new" },
             { label: "Profile", href: "/profile" },
           ].map(({ label, href }) => (
             <a

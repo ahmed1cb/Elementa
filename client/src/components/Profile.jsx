@@ -191,7 +191,7 @@ export default function Profile() {
                 </div>
               )}
               <a
-                href="/upload"
+                href="/new"
                 className="flex items-center gap-1.5 px-3.5 py-2 bg-[var(--accent)] text-white text-sm font-semibold font-display rounded-[var(--radius-md)] no-underline hover:opacity-90 active:scale-[0.97] transition-all"
               >
                 <Plus size={14} />
@@ -328,7 +328,7 @@ export default function Profile() {
                 {MY_COMPONENTS.length} components published
               </p>
               <a
-                href="/upload"
+                href="/new"
                 className="flex items-center gap-1.5 text-sm text-[var(--accent-light)] no-underline hover:underline font-semibold"
               >
                 <Plus size={13} /> Add new
