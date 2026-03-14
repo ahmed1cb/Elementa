@@ -18,7 +18,7 @@ const FEATURED = [
   {
     id: 1,
     title: "Glassmorphism Card",
-    author: "sara_dev",
+    author: "randdev",
     tags: ["CSS", "UI"],
     likes: 284,
     views: 1420,

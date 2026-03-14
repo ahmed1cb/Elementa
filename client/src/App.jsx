@@ -5,6 +5,7 @@ import SignUpPage from "./components/SignUp";
 import Login from "./components/Login";
 import { useTheme } from "./hooks/useTheme";
 import Components from "./components/Components";
+import TopUsers from "./components/TopUsers";
 
 function App() {
   const {theme} = useTheme();
@@ -13,6 +14,7 @@ function App() {
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Home />} />
         <Route path='components' element={<Components />} />
+        <Route path='users' element={<TopUsers />} />
       </Route>
 
       <Route path="/auth">

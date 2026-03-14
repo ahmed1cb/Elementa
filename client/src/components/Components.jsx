@@ -18,7 +18,7 @@ const ALL_COMPONENTS = [
   {
     id: 1,
     title: "Glassmorphism Card",
-    author: "sara_dev",
+    author: "randdev",
     category: "UI",
     tags: ["CSS", "UI"],
     likes: 284,
@@ -95,7 +95,7 @@ const ALL_COMPONENTS = [
   {
     id: 8,
     title: "Sidebar Navigation",
-    author: "sara_dev",
+    author: "randdev",
     category: "Navigation",
     tags: ["HTML", "CSS", "JS"],
     likes: 267,
