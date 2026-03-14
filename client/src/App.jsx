@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import SignUpPage from "./components/SignUp";
 import Login from "./components/Login";
 import { useTheme } from "./hooks/useTheme";
+import Components from "./components/Components";
 
 function App() {
   const {theme} = useTheme();
@@ -11,6 +12,7 @@ function App() {
     <Routes>
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Home />} />
+        <Route path='components' element={<Components />} />
       </Route>
 
       <Route path="/auth">

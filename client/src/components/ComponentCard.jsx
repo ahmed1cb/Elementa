@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { Code2, Eye, Heart, Copy } from "lucide-react";
+import { Code2, Eye, Heart, Copy, ExternalLink } from "lucide-react";
 
 function ComponentCard({ item }) {
-  const [copied, setCopied] = useState(false);
+  const [opened, setOpened] = useState(false);
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(item.likes);
 
   const handleCopy = (e) => {
     e.stopPropagation();
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1600);
+    setOpened(true);
+    setTimeout(() => setOpened(false), 1600);
   };
 
   const handleLike = (e) => {
@@ -45,8 +45,8 @@ function ComponentCard({ item }) {
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-[var(--radius-md)] text-white text-xs font-semibold border-none cursor-pointer hover:opacity-90 active:scale-[0.97] transition-all"
             style={{ background: item.accent }}
           >
-            <Copy size={13} />
-            {copied ? "Copied!" : "Copy code"}
+            <ExternalLink size={13} />
+            {opened ? "Opened" : "Open in New Window"}
           </button>
           <button className="flex items-center gap-1.5 px-3.5 py-2 rounded-[var(--radius-md)] bg-white/10 border border-white/20 text-white text-xs font-semibold cursor-pointer hover:bg-white/20 transition-all">
             <Eye size={13} />

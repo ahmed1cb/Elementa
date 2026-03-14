@@ -298,7 +298,7 @@ export default function Home() {
               {TOP_USERS.map((u) => (
                 <a
                   key={u.name}
-                  href={`/profile/${u.name}`}
+                  href={`/users/${u.name}`}
                   className="flex items-center gap-4 p-4 rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--bg)] hover:border-[var(--accent)] hover:bg-[var(--bg-tertiary)] transition-all no-underline group"
                 >
                   <span
