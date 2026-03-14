@@ -1,43 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PasswordStrengthBar from "./PasswordStrengthBar";
 import FormInput from "./FormInput";
 import LogoIcon from "./LogoIcon";
 import { EyeClosed, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 
-
-export default function SignUpPage() {
+export default function Login() {
   const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
-  const [showPassword2, setShowPassword2] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
 
   const update = (field) => (e) =>
     setForm({ ...form, [field]: e.target.value });
   const validate = () => {
     const e = {};
-    if (!form.firstName.trim()) e.firstName = "First name is required";
-    if (!form.lastName.trim()) e.lastName = "Last name is required";
-    if (!form.username.trim()) e.username = "Username is required";
-    else if (!/^[a-z0-9_]{3,20}$/.test(form.username))
-      e.username = "3–20 chars: lowercase, numbers, underscores only";
     if (!form.email.trim()) e.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(form.email)) e.email = "Enter a valid email";
     if (!form.password) e.password = "Password is required";
     else if (form.password.length < 8) e.password = "Minimum 8 characters";
-    if (!form.confirmPassword)
-      e.confirmPassword = "You have to confirm the password";
-    else if (form.confirmPassword !== form.password)
-      e.confirmPassword = "Passwords does not match";
     return e;
   };
 
@@ -106,15 +90,15 @@ export default function SignUpPage() {
         <div className="w-full max-w-[440px]">
           <div className="mb-8">
             <h1 className="font-display font-bold text-[1.75rem] text-[var(--text)] tracking-tight mb-1.5">
-              Create your account
+              Login To You're Account
             </h1>
             <p className="text-[var(--text-muted)] text-sm">
-              Already have one?{" "}
+              Dont have one?{" "}
               <Link
-                to="/auth/login"
+                to="/auth/register"
                 className="text-[var(--accent-light)] font-medium no-underline hover:underline"
               >
-                Sign in
+                Sign Up
               </Link>
             </p>
           </div>
@@ -123,7 +107,7 @@ export default function SignUpPage() {
           <div className="flex items-center gap-2.5 mb-6">
             <div className="flex-1 h-px bg-[var(--border)]" />
             <span className="text-xs text-[var(--text-muted)]">
-              register with email
+              Login With Email
             </span>
             <div className="flex-1 h-px bg-[var(--border)]" />
           </div>
@@ -131,30 +115,6 @@ export default function SignUpPage() {
           {/* Form */}
           <form onSubmit={handleSubmit} noValidate>
             {/* Name row */}
-            <div className="grid grid-cols-2 gap-3">
-              <FormInput
-                label="First name"
-                placeholder="Jhon"
-                value={form.firstName}
-                onChange={update("firstName")}
-                error={errors.firstName}
-              />
-              <FormInput
-                label="Last name"
-                placeholder="Doe"
-                value={form.lastName}
-                onChange={update("lastName")}
-                error={errors.lastName}
-              />
-            </div>
-
-            <FormInput
-              label="Username"
-              placeholder="jhondoe"
-              value={form.username}
-              onChange={update("username")}
-              error={errors.username}
-            />
 
             <FormInput
               label="Email"
@@ -178,25 +138,6 @@ export default function SignUpPage() {
                   className="text-[var(--text-muted)] cursor-pointer flex"
                 >
                   {showPassword ? <EyeClosed size={16} /> : <Eye size={16} />}
-                </span>
-              }
-            />
-
-            <PasswordStrengthBar password={form.password} />
-
-            <FormInput
-              label="Confirm Password"
-              type={showPassword2 ? "text" : "password"}
-              placeholder="Re-enter your password"
-              value={form.confirmPassword}
-              onChange={update("confirmPassword")}
-              error={errors.confirmPassword}
-              rightElement={
-                <span
-                  onClick={() => setShowPassword2(!showPassword2)}
-                  className="text-[var(--text-muted)] cursor-pointer flex"
-                >
-                  {showPassword2 ? <EyeClosed size={16} /> : <Eye size={16} />}
                 </span>
               }
             />
@@ -244,7 +185,6 @@ export default function SignUpPage() {
               )}
             </button>
           </form>
-
         </div>
       </div>
     </div>
