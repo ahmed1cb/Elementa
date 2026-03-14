@@ -7,3 +7,8 @@ body,
   color: var(--text);
   transition: background .3s;
 }
+ 
+
+::-webkit-scrollbar{
+  display: none;
+}
