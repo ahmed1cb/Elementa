@@ -14,7 +14,7 @@ const ALL_USERS = [
   {
     rank: 1,
     name: "ahmed1cb",
-    fullName: "Ahmed Al-Rashid",
+    fullName: "Ahmed Hassan",
     avatar: "AC",
     components: 48,
     likes: 2341,

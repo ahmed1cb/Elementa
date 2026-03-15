@@ -19,7 +19,7 @@ const INITIAL_NOTIFICATIONS = [
     type: "like",
     read: false,
     ts: "2 min ago",
-    user: { name: "sara_dev", avatar: "SD", accent: "#3ecf8e" },
+    user: { name: "Randdev", avatar: "SD", accent: "#3ecf8e" },
     content: "liked your component",
     target: "Glassmorphism Card",
     targetType: "component",

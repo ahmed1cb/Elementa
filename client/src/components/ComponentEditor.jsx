@@ -94,17 +94,7 @@ const INITIAL_CSS = `.card {
   opacity: 0.85;
 }`;
 
-const INITIAL_JS = `// Add interactivity here
-const btn = document.querySelector('.card__btn');
-
-btn.addEventListener('click', () => {
-  btn.textContent = 'Saved! ✓';
-  btn.style.background = '#3ecf8e';
-  setTimeout(() => {
-    btn.textContent = 'Explore →';
-    btn.style.background = '#7c6af7';
-  }, 1500);
-});`;
+const INITIAL_JS = ``;
 
 export default function ComponentEditor() {
   const [html, setHtml] = useState(INITIAL_HTML);
@@ -121,7 +111,6 @@ export default function ComponentEditor() {
   const [consoleLogs, setConsoleLogs] = useState([]);
   const [consoleOpen, setConsoleOpen] = useState(true);
 
-  // Listen for messages from iframe console interceptor
   useEffect(() => {
     const handler = (e) => {
       if (e.data?.type === "console") {
@@ -634,11 +623,9 @@ export default function ComponentEditor() {
               </div>
             </div>
 
-            {/* Console body */}
             {consoleOpen && (
               <div
                 className="flex-1 overflow-y-auto font-mono text-xs"
-                style={{ background: "#080809" }}
               >
                 {consoleLogs.length === 0 ? (
                   <div
