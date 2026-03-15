@@ -9,18 +9,20 @@ import TopUsers from "./components/TopUsers";
 import Profile from "./components/Profile";
 import Settings from "./components/Settings";
 import ComponentEditor from "./components/ComponentEditor";
+import Notifications from "./components/Notifications";
 
 function App() {
-  const {theme} = useTheme();
+  const { theme } = useTheme();
   return (
     <Routes>
       <Route path="/" element={<AppLayout />}>
         <Route index element={<Home />} />
-        <Route path='components' element={<Components />} />
-        <Route path='users' element={<TopUsers />} />
-        <Route path='profile' element={<Profile />} />
-        <Route path='settings' element={<Settings/>} />
-        <Route path='new' element={<ComponentEditor/>} />
+        <Route path="components" element={<Components />} />
+        <Route path="notifications" element={<Notifications />} />
+        <Route path="users" element={<TopUsers />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="new" element={<ComponentEditor />} />
       </Route>
 
       <Route path="/auth">

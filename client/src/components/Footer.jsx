@@ -6,7 +6,6 @@ const FOOTER_LINKS = {
     { label: "Components", href: "/components" },
     { label: "Top Users", href: "/users" },
     { label: "Share", href: "/new" },
-    { label: "Tags", href: "/tags" },
   ],
   Account: [
     { label: "Profile", href: "/profile" },
@@ -16,8 +15,6 @@ const FOOTER_LINKS = {
   Project: [
     { label: "GitHub", href: "https://github.com/ahmed1cb/elementa" },
     { label: "MIT License", href: "/license" },
-    { label: "Terms", href: "/terms" },
-    { label: "Privacy", href: "/privacy" },
   ],
 };
 
@@ -44,7 +41,6 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Link groups */}
           {Object.entries(FOOTER_LINKS).map(([group, links]) => (
             <div key={group}>
               <h4 className="font-display font-bold text-xs text-[var(--text)] uppercase tracking-widest mb-4">
@@ -67,7 +63,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="pt-6 border-t border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-[var(--text-muted)]">
-            © {new Date().getFullYear()} Elementa. Released under the MIT License.
+            © {new Date().getFullYear()} Elementa. Released under the MIT License Made By AHmed Hassan , Ui design by Claude Ai.
           </p>
         </div>
       </div>

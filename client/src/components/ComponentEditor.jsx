@@ -23,6 +23,7 @@ import {
   LivePreview,
   TagInput,
 } from "./ComponentEditorPageContents";
+import LogoIcon from "./LogoIcon";
 
 const CATEGORIES = [
   "UI",
@@ -250,40 +251,11 @@ export default function ComponentEditor() {
 
   return (
     <div className="h-screen flex flex-col bg-[var(--bg)] font-body overflow-hidden">
-      {/* ══ TOP PUBLISH HEADER ══════════════════════════════════════════════ */}
       <header className="shrink-0 border-b border-[var(--border)] bg-[var(--bg-secondary)]">
-        {/* Row 1 — branding + actions */}
         <div className="flex items-center gap-4 px-5 py-3 border-b border-[var(--border)]">
-          {/* Back + logo */}
           <a href="/" className="flex items-center gap-2 no-underline shrink-0">
             <div className="w-7 h-7 bg-[var(--accent)] rounded-[7px] flex items-center justify-center">
-              <svg width="14" height="14" viewBox="0 0 18 18" fill="none">
-                <rect x="2" y="2" width="6" height="6" rx="1.5" fill="white" />
-                <rect
-                  x="10"
-                  y="2"
-                  width="6"
-                  height="6"
-                  rx="1.5"
-                  fill="rgba(255,255,255,0.5)"
-                />
-                <rect
-                  x="2"
-                  y="10"
-                  width="6"
-                  height="6"
-                  rx="1.5"
-                  fill="rgba(255,255,255,0.5)"
-                />
-                <rect
-                  x="10"
-                  y="10"
-                  width="6"
-                  height="6"
-                  rx="1.5"
-                  fill="rgba(255,255,255,0.75)"
-                />
-              </svg>
+             <LogoIcon/>
             </div>
             <span className="font-display font-extrabold text-sm text-[var(--text)] tracking-tight hidden sm:block">
               Elementa
@@ -309,7 +281,6 @@ export default function ComponentEditor() {
             </div>
           )}
 
-          {/* Actions */}
           <div className="flex items-center gap-2">
             <button
               onClick={handleSave}
@@ -396,7 +367,6 @@ export default function ComponentEditor() {
             )}
           </div>
 
-          {/* Description */}
           <div className="flex-[2] min-w-0">
             <div
               className="flex items-center gap-2 px-3.5 py-2 rounded-[var(--radius-md)] border bg-[var(--input-bg)] transition-all focus-within:border-[var(--accent)] focus-within:shadow-[0_0_0_3px_var(--accent-muted)]"
@@ -423,7 +393,6 @@ export default function ComponentEditor() {
             )}
           </div>
 
-          {/* Category */}
           <div className="relative shrink-0">
             <button
               onClick={() => setCatOpen((p) => !p)}
@@ -482,7 +451,6 @@ export default function ComponentEditor() {
         {/* ── LEFT: Code Editors ── */}
         {!previewFull && (
           <div className="flex flex-col border-r border-[var(--border)] min-h-0">
-            {/* Pane tabs */}
             <div className="flex items-center border-b border-[var(--border)] bg-[var(--bg-secondary)] shrink-0">
               {PANES.map(({ id, label, color }) => (
                 <button
@@ -524,7 +492,6 @@ export default function ComponentEditor() {
               </button>
             </div>
 
-            {/* Custom head editor */}
             {showHead && (
               <div className="shrink-0 border-b border-[var(--border)] bg-[var(--bg)]">
                 <div className="flex items-center gap-2 px-3 py-1.5 border-b border-[var(--border)]">

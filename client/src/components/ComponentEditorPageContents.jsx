@@ -43,8 +43,45 @@ function CodeEditor({ value, onChange, language }) {
         "scrollbarSlider.activeBackground": "#7c6af750",
       },
     });
-    
-    monaco.editor.setTheme("elementa-dark");
+
+    monaco.editor.defineTheme("elementa-light", {
+      base: "vs",
+      inherit: true,
+      rules: [
+        { token: "comment", foreground: "b0b0be", fontStyle: "italic" },
+        { token: "keyword", foreground: "5b4de8" },
+        { token: "string", foreground: "1a9e68" },
+        { token: "number", foreground: "c47d0e" },
+        { token: "tag", foreground: "c0392b" },
+        { token: "attribute.name", foreground: "185fa5" },
+        { token: "attribute.value", foreground: "1a9e68" },
+        { token: "delimiter.html", foreground: "888898" },
+        { token: "metatag.html", foreground: "c0392b" },
+      ],
+      colors: {
+        "editor.background": "#fafaff",
+        "editor.foreground": "#111118",
+        "editor.lineHighlightBackground": "#f0f0f8",
+        "editorLineNumber.foreground": "#c8c8d8",
+        "editorLineNumber.activeForeground": "#888898",
+        "editor.selectionBackground": "#5b4de830",
+        "editor.inactiveSelectionBackground": "#5b4de818",
+        "editorCursor.foreground": color,
+        "editorIndentGuide.background1": "#e0e0ea",
+        "editorIndentGuide.activeBackground1": "#c8c8d8",
+        "editorWidget.background": "#ffffff",
+        "editorSuggestWidget.background": "#ffffff",
+        "editorSuggestWidget.border": "#e0e0ea",
+        "editorSuggestWidget.selectedBackground": "#5b4de812",
+        "input.background": "#f8f8fc",
+        "input.border": "#e0e0ea",
+        "scrollbarSlider.background": "#c8c8d880",
+        "scrollbarSlider.hoverBackground": "#b0b0be80",
+        "scrollbarSlider.activeBackground": "#5b4de850",
+      },
+    });
+
+    monaco.editor.setTheme(`elementa-${localStorage.mode ?? "light"}`);
 
     editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
       editor.getAction("editor.action.formatDocument")?.run();
@@ -55,7 +92,6 @@ function CodeEditor({ value, onChange, language }) {
     <div className="flex flex-col h-full">
       <div
         className="flex items-center justify-between px-3 py-1.5 border-b border-[var(--border)] shrink-0"
-        style={{ background: "#0c0c0e" }}
       >
         <span
           className="text-[10px] font-bold uppercase tracking-widest font-display px-2 py-0.5 rounded-full"
@@ -93,7 +129,6 @@ function CodeEditor({ value, onChange, language }) {
               Loading editor...
             </div>
           }
-          
           options={{
             fontSize: 13,
             fontFamily:
@@ -101,7 +136,7 @@ function CodeEditor({ value, onChange, language }) {
             fontLigatures: true,
             lineHeight: 22,
             tabSize: 2,
-            
+
             insertSpaces: true,
             minimap: { enabled: false },
             scrollBeyondLastLine: false,
@@ -159,6 +194,7 @@ const CONSOLE_INJECTOR = `
   });
 })();
 <\/script>`;
+
 function LivePreview({ html, css, js, headHtml, refreshKey = 0 }) {
   const buildDoc = () => `<!DOCTYPE html>
 <html lang="en">

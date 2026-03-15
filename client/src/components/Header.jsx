@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import LogoIcon from "./LogoIcon";
 import { useTheme } from "../hooks/useTheme";
+import { Link } from "react-router-dom";
 
 export default function Header({ user = { name: "ahmed1cb", avatar: "AC" } }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -86,11 +87,13 @@ export default function Header({ user = { name: "ahmed1cb", avatar: "AC" } }) {
             {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
           </button>
 
-          {/* Notifications */}
-          <button className="relative w-9 h-9 flex items-center justify-center rounded-[var(--radius-md)] border border-[var(--border)] text-[var(--text-muted)] cursor-pointer hover:text-[var(--text)] hover:border-[var(--accent)] transition-all bg-transparent">
+          <Link
+            to={"/notifications"}
+            className="relative w-9 h-9 flex items-center justify-center rounded-[var(--radius-md)] border border-[var(--border)] text-[var(--text-muted)] cursor-pointer hover:text-[var(--text)] hover:border-[var(--accent)] transition-all bg-transparent"
+          >
             <Bell size={15} />
             <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[var(--accent)]" />
-          </button>
+          </Link>
 
           {/* Avatar */}
           <a
