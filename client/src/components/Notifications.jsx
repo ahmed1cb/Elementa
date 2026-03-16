@@ -1,14 +1,7 @@
 import { useState, useMemo } from "react";
 import {
   Bell,
-  Heart,
-  MessageSquare,
-  UserPlus,
-  Star,
-  Upload,
   Trash2,
-  Code2,
-  X,
   CheckCheck,
 } from "lucide-react";
 import { NotificationRow, TYPE_CONFIG } from "./NotificationsPageContents";
@@ -17,7 +10,7 @@ const INITIAL_NOTIFICATIONS = [
   {
     id: 1,
     type: "like",
-    read: false,
+    read: true,
     ts: "2 min ago",
     user: { name: "Randdev", avatar: "SD", accent: "#3ecf8e" },
     content: "liked your component",
@@ -34,97 +27,12 @@ const INITIAL_NOTIFICATIONS = [
     target: null,
     targetType: null,
   },
-  {
-    id: 3,
-    type: "comment",
-    read: false,
-    ts: "1 hr ago",
-    user: { name: "uxlayer", avatar: "LM", accent: "#f5a623" },
-    content: "commented on your component",
-    target: "Toast Notification",
-    targetType: "component",
-    extra: "Really clean implementation! Love the animation timing 🔥",
-  },
-  {
-    id: 4,
-    type: "like",
-    read: false,
-    ts: "2 hr ago",
-    user: { name: "gridmaster", avatar: "PS", accent: "#a78bfa" },
-    content: "liked your component",
-    target: "Neon Input Field",
-    targetType: "component",
-  },
-  {
-    id: 5,
-    type: "featured",
-    read: false,
-    ts: "3 hr ago",
-    user: { name: "Elementa", avatar: "EL", accent: "#7c6af7" },
-    content: "featured your component on the homepage",
-    target: "Glassmorphism Card",
-    targetType: "component",
-  },
-  {
-    id: 6,
-    type: "comment",
-    read: true,
-    ts: "Yesterday",
-    user: { name: "m_codes", avatar: "MJ", accent: "#5cb8f7" },
-    content: "commented on your component",
-    target: "Scroll Progress Bar",
-    targetType: "component",
-    extra: "Could you add a version without the dependency?",
-  },
-  {
-    id: 7,
-    type: "follow",
-    read: true,
-    ts: "Yesterday",
-    user: { name: "devhana", avatar: "HP", accent: "#3ecf8e" },
-    content: "started following you",
-    target: null,
-    targetType: null,
-  },
-  {
-    id: 8,
-    type: "like",
-    read: true,
-    ts: "2 days ago",
-    user: { name: "webwizard", avatar: "CR", accent: "#f05c5c" },
-    content: "liked your component",
-    target: "Loader Collection",
-    targetType: "component",
-  },
-  {
-    id: 9,
-    type: "milestone",
-    read: true,
-    ts: "3 days ago",
-    user: { name: "Elementa", avatar: "EL", accent: "#7c6af7" },
-    content: "Your component reached 1,000 views!",
-    target: "Glassmorphism Card",
-    targetType: "component",
-  },
-  {
-    id: 10,
-    type: "comment",
-    read: true,
-    ts: "4 days ago",
-    user: { name: "cssmagic", avatar: "YW", accent: "#f5a623" },
-    content: "replied to your comment",
-    target: "Animated Gradient Button",
-    targetType: "component",
-    extra: "Agreed, the cubic-bezier makes it feel premium.",
-  },
+  
 ];
 
 const TABS = [
   { id: "all", label: "All" },
   { id: "unread", label: "Unread" },
-  { id: "likes", label: "Likes" },
-  { id: "comments", label: "Comments" },
-  { id: "follows", label: "Follows" },
 ];
 
 
@@ -138,12 +46,6 @@ export default function Notifications() {
     switch (activeTab) {
       case "unread":
         return notifications.filter((n) => !n.read);
-      case "likes":
-        return notifications.filter((n) => n.type === "like");
-      case "comments":
-        return notifications.filter((n) => n.type === "comment");
-      case "follows":
-        return notifications.filter((n) => n.type === "follow");
       default:
         return notifications;
     }

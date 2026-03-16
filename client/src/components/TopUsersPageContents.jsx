@@ -106,15 +106,14 @@ function PodiumCard({ user, size = "md" }) {
       <p className="text-xs text-[var(--text-muted)] mb-4">{user.fullName}</p>
 
       {/* Stats */}
-      <div className="grid grid-cols-3 gap-2 w-full">
+      <div className="flex flex-col md:flex-row gap-2 w-full">
         {[
           { label: "Components", value: user.components },
           { label: "Likes", value: user.likes.toLocaleString() },
-          { label: "Followers", value: user.followers },
         ].map(({ label, value }) => (
           <div
             key={label}
-            className="flex flex-col items-center p-2 rounded-[var(--radius-md)] bg-[var(--bg-tertiary)]"
+            className="flex  flex-col items-center grow-1 p-2 rounded-[var(--radius-md)] bg-[var(--bg-tertiary)]"
           >
             <span className="font-display font-bold text-sm text-[var(--text)]">
               {value}
@@ -215,14 +214,6 @@ function UserRow({ user }) {
             {user.likes.toLocaleString()}
           </span>
           <span className="text-[10px] text-[var(--text-muted)]">likes</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <span className="font-display font-bold text-sm text-[var(--text)]">
-            {user.followers}
-          </span>
-          <span className="text-[10px] text-[var(--text-muted)]">
-            followers
-          </span>
         </div>
       </div>
 

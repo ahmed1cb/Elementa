@@ -14,10 +14,9 @@ return new class extends Migration
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-
             $table->string('text')->nullable();
 
-            $table->foreignId('from_id')->constrained('users' , 'id');
+            $table->boolean('read');
 
             $table->timestamps();
         });

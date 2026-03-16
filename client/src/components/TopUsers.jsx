@@ -19,7 +19,6 @@ const ALL_USERS = [
     components: 48,
     likes: 2341,
     views: 18400,
-    followers: 312,
     badge: "top-contributor",
     joined: "Jan 2024",
     tags: ["CSS", "UI", "Animation"],
@@ -33,7 +32,6 @@ const ALL_USERS = [
     components: 35,
     likes: 1890,
     views: 14200,
-    followers: 244,
     badge: "rising-star",
     joined: "Feb 2024",
     tags: ["React", "JS", "UI"],
@@ -47,7 +45,6 @@ const ALL_USERS = [
     components: 29,
     likes: 1540,
     views: 11800,
-    followers: 198,
     badge: "prolific",
     joined: "Jan 2024",
     tags: ["CSS", "Layout"],
@@ -61,7 +58,6 @@ const ALL_USERS = [
     components: 24,
     likes: 1120,
     views: 9300,
-    followers: 155,
     badge: null,
     joined: "Mar 2024",
     tags: ["Design", "CSS"],
@@ -75,7 +71,6 @@ const ALL_USERS = [
     components: 21,
     likes: 990,
     views: 8100,
-    followers: 132,
     badge: null,
     joined: "Feb 2024",
     tags: ["JS", "Animation"],
@@ -89,7 +84,6 @@ const ALL_USERS = [
     components: 18,
     likes: 870,
     views: 6900,
-    followers: 108,
     badge: null,
     joined: "Mar 2024",
     tags: ["CSS", "Grid"],
@@ -103,7 +97,6 @@ const ALL_USERS = [
     components: 15,
     likes: 720,
     views: 5600,
-    followers: 91,
     badge: null,
     joined: "Apr 2024",
     tags: ["HTML", "CSS"],
@@ -117,7 +110,6 @@ const ALL_USERS = [
     components: 14,
     likes: 680,
     views: 5100,
-    followers: 84,
     badge: null,
     joined: "Apr 2024",
     tags: ["JS", "UI"],
@@ -131,7 +123,6 @@ const ALL_USERS = [
     components: 12,
     likes: 590,
     views: 4400,
-    followers: 73,
     badge: null,
     joined: "May 2024",
     tags: ["CSS", "Animation"],
@@ -145,7 +136,6 @@ const ALL_USERS = [
     components: 11,
     likes: 510,
     views: 3900,
-    followers: 65,
     badge: null,
     joined: "May 2024",
     tags: ["Layout", "CSS"],
@@ -159,7 +149,6 @@ const SORT_OPTIONS = [
   { id: "likes", label: "Most liked", icon: Heart },
   { id: "components", label: "Most components", icon: Layers },
   { id: "views", label: "Most viewed", icon: Eye },
-  { id: "followers", label: "Most followers", icon: Users },
 ];
 
 
@@ -184,7 +173,6 @@ export default function TopUsersPage() {
     if (sortBy === "components")
       list.sort((a, b) => b.components - a.components);
     if (sortBy === "views") list.sort((a, b) => b.views - a.views);
-    if (sortBy === "followers") list.sort((a, b) => b.followers - a.followers);
 
     return list;
   }, [search, sortBy]);

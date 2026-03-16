@@ -3,15 +3,11 @@ import {
   Layers,
   Heart,
   Eye,
-  Copy,
-  Code2,
   MapPin,
-  Link2,
   Calendar,
   Settings,
   Pencil,
   Check,
-  X,
   Plus,
   Star,
   Github,
@@ -36,8 +32,6 @@ const CURRENT_USER = {
     components: 48,
     likes: 2341,
     views: 18400,
-    followers: 312,
-    following: 87,
   },
 };
 
@@ -126,7 +120,6 @@ export default function Profile() {
         />
       )}
 
-      {/* ── Cover / Banner ── */}
       <div
         className="h-40 relative overflow-hidden"
         style={{
@@ -257,8 +250,7 @@ export default function Profile() {
           </div>
         </div>
 
-        {/* ── Stats strip ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-8">
+        <div className="flex flex-col md:flex-row  gap-3 mb-8">
           {[
             { label: "Components", value: user.stats.components, icon: Layers },
             {
@@ -271,12 +263,10 @@ export default function Profile() {
               value: `${(user.stats.views / 1000).toFixed(1)}k`,
               icon: Eye,
             },
-            { label: "Followers", value: user.stats.followers, icon: null },
-            { label: "Following", value: user.stats.following, icon: null },
           ].map(({ label, value, icon: Icon }) => (
             <div
               key={label}
-              className="flex flex-col items-center py-4 px-3 rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--bg-secondary)] hover:border-[var(--accent)] transition-all cursor-pointer"
+              className="flex grow-1 flex-col items-center py-4 px-3 rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--bg-secondary)] hover:border-[var(--accent)] transition-all cursor-pointer"
             >
               {Icon && (
                 <Icon size={15} className="text-[var(--accent)] mb-1.5" />

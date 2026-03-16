@@ -127,8 +127,7 @@ const STATS = [
     value: "94,000+",
     icon: Eye,
     trend: "+12% vs last month",
-  },
-  { label: "Countries", value: "68+", icon: Globe, trend: "Worldwide" },
+  }
 ];
 
 const TABS = [
@@ -145,7 +144,6 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg)] font-body">
       <main className="flex-1">
-        {/* ── Hero ── */}
         <section className="relative border-b border-[var(--border)] overflow-hidden">
           <div className="absolute inset-0 pointer-events-none">
             <div
@@ -197,14 +195,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Stats ── */}
         <section className="border-b border-[var(--border)] bg-[var(--bg-secondary)]">
           <div className="max-w-7xl mx-auto px-5 py-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="flex flex-col md:flex-row gap-3">
               {STATS.map(({ label, value, icon: Icon, trend }) => (
                 <div
                   key={label}
-                  className="flex items-center gap-4 p-4 rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--bg)] hover:border-[var(--accent)] transition-all"
+                  className="flex grow-1 items-center gap-4 p-4 rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--bg)] hover:border-[var(--accent)] transition-all"
                 >
                   <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--accent)]/10 flex items-center justify-center shrink-0">
                     <Icon size={18} className="text-[var(--accent)]" />
