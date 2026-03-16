@@ -138,7 +138,7 @@ class AuthController extends Controller
             'bio' => ['max:160'],
             'website' => ['max:255', 'url:http,https'],
             'github' => ['max:39', 'url:http,https'],
-            'tiwtter' => ['max:50', 'url:http,https'],
+            'twitter' => ['max:50', 'url:http,https'],
 
         ]);
 
