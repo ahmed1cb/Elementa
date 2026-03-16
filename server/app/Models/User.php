@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Carbon;
 use Laravel\Sanctum\HasApiTokens;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,15 +12,24 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable , HasApiTokens;
+    use HasFactory, Notifiable, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
+
+    protected $appends = ['joined_at'];
     protected $fillable = [
-        'name',
+        'fullname',
+        'username',
+        'location',
+        'avatar',
+        'bio',
+        'website',
+        'github',
+        'tiwtter',
         'email',
         'password',
     ];
@@ -47,4 +56,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function getJoinedAtAttribute()
+    {
+        $date = Carbon::make($this->created_at);
+
+        return $date->format('d M Y');
+
+    }
+
 }

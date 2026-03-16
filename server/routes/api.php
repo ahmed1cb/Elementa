@@ -1,8 +1,19 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+
+
+Route::prefix('/auth')->controller(AuthController::class)->group(function () {
+
+    Route::middleware('auth.elementa')->group(function () {
+        Route::get('/user', 'getUserDetails');
+        Route::post('/logout', 'logoutUser');
+
+    });
+    Route::post('/register', 'register');
+    Route::post('/login', 'login');
+
+
+});
