@@ -38,7 +38,7 @@ class AuthController extends Controller
 
         $check = Validator::make($data, [
             'fullname' => ['required', 'max:255'],
-            'username' => ['required', 'max:255', 'unique:users,username'],
+            'username' => ['required', 'max:255', 'unique:users,username', 'regex:/^\S*$/u'],
             'email' => ['email', 'required', 'max:255', 'unique:users,email'],
             'password' => ['min:8', 'max:16', 'required', 'confirmed']
         ]);
@@ -110,26 +110,36 @@ class AuthController extends Controller
 
         return Response::json([], 'User Logout Successfully', 200);
     }
-    
+
     public function editProfile()
     {
-
         $user = request()->user();
 
-        $dataToEdit = ['name', 'location', 'state', 'bio'];
-        $files = ['photo', 'cover'];
+        $dataToEdit = ['fullname', 'username', 'location', 'bio', 'website', 'github', 'twitter'];
+
+        $files = ['avatar'];
+
+        if (!request()->hasAny(array_merge($dataToEdit, $files))) {
+
+            return Response::json([
+            ], "Nothing to Edit", 200);
+
+        }
 
 
         $check = Validator::make(request()->only(array_merge(
             $dataToEdit,
             $files
         )), [
-            'name' => ['nullable', 'string', 'max:255', 'min:3'],
+            'fullname' => ['string', 'max:255', 'min:3'],
+            'username' => ['string', 'max:255', 'min:3', 'unique:users,username', 'regex:/^\S*$/u'],
             'location' => ['nullable', 'string', 'max:255'],
-            'state' => ['nullable', 'string', 'max:255'],
-            'photo' => ['max:20480', 'image', 'mimes:jpg,png,jpeg,gif,svg,webp'],
-            'cover' => ['max:20480', 'image', 'mimes:jpg,png,jpeg,gif,svg,webp'],
-            'bio' => ['max:255'],
+            'avatar' => ['max:20480', 'image', 'mimes:jpg,png,jpeg,gif,svg,webp'],
+            'bio' => ['max:160'],
+            'website' => ['max:255', 'url:http,https'],
+            'github' => ['max:39', 'url:http,https'],
+            'tiwtter' => ['max:50', 'url:http,https'],
+
         ]);
 
 
@@ -152,18 +162,13 @@ class AuthController extends Controller
 
         foreach ($files as $key) {
             if (request()->hasFile($key)) {
-
-
                 $path = request()->file($key)->store('users', 'public');
-
                 $data[$key] = $path;
-
             }
         }
 
 
         $user->update($data);
-
 
         return Response::json([
             'user' => $user->fresh()
